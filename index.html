@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Puzzle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="game-container">
+  <div class="left-panel">
+    <h2>🧩 Image Puzzle</h2>
+    <h2>
+      <select id="langSelect">
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+        <option value="uk">Українська</option>
+      </select>
+    </h2>
+
+    <div class="controls">
+      <label id="difficultyLabel">Сложность:</label>
+      <select id="difficulty">
+        <option value="3">3×3</option>
+        <option value="4" selected>4×4</option>
+        <option value="5">5×5</option>
+      </select>
+
+      <button class="random-btn" id="randomBtn" onclick="useRandomImage()">🎲 Random Image</button>
+      <input type="file" id="imageUpload" accept="image/*">
+      <button id="shuffleBtn">Перемешать</button>
+    </div>
+
+    <div class="info">
+      <span id="movesLabel">Ходы: <span id="moves">0</span></span>
+      <span id="timerLabel">Время: <span id="timer">0</span> с</span>
+    </div>
+
+    <div id="reference">
+      <h3>Оригинал</h3>
+      <img id="referenceImage" src="images/stock_image.jpg" alt="Reference">
+    </div>
+  </div>
+
+  <div id="game"></div>
+</div>
+
+<!-- Модальное окно победы -->
+<div id="winModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="winModalMessage">🎉 Puzzle Completed!</h2>
+    <p><span id="finalTimeLabel">Time:</span> <span id="finalTime"></span> с</p>
+    <p><span id="finalMovesLabel">Moves:</span> <span id="finalMoves"></span></p>
+    <p><span id="finalSizeLabel">Grid Size:</span> <span id="finalSize"></span></p>
+    <button class="restart-btn" id="restartBtn" onclick="restartGame()">Play Again</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
