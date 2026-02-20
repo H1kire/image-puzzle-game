@@ -21,10 +21,7 @@ body {
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.25);
     max-width: 1000px;
-
-    /* Чтобы контент не вылезал */
-    flex-wrap: wrap;
-    justify-content: center;
+    width: 95%;
 }
 
 .left-panel {
@@ -75,23 +72,25 @@ button:hover {
     background: #f5f5f5;
     padding: 10px;
     border-radius: 15px;
-
     width: 100%;
-    max-width: 400px; /* максимум игрового поля */
-    min-width: 200px; /* минимальный размер */
-    box-sizing: border-box;
-
-    flex-shrink: 0;  /* чтобы flex не сжимал слишком */
+    max-width: 500px; /* ограничиваем, чтобы не вылазило */
 }
-
 
 /* Плитки */
 .tile {
+    touch-action: none;
     border-radius: 8px;
     cursor: pointer;
-    background-size: cover;
+    background-image: url("images/stock_image.jpg");
+    background-size: cover;  /* ⚡ здесь главное: cover вместо масштабирования по сетке */
+    background-position: center; /* чтобы центр всегда был в плитке */
     transition: 0.2s ease;
     aspect-ratio: 1 / 1; /* всегда квадрат */
+}
+
+.dragging{
+    opacity:.5;
+    transform:scale(1.05);
 }
 
 .tile:hover {
@@ -203,17 +202,10 @@ button:hover {
         flex-direction: column;
         align-items: center;
         gap: 20px;
-        max-width: 95%;
-        padding: 20px;
-    }
-
-    .left-panel {
-        width: 100%;
-        min-width: unset;
     }
 
     #game {
-        width: 100%;
+        max-width: 95%;
     }
 
     #reference img {
@@ -224,7 +216,7 @@ button:hover {
 /* Адаптация под телефон */
 @media (max-width: 600px) {
     #game {
-        width: 100%;
+        max-width: 100%;
     }
 
     #reference img {
@@ -237,4 +229,4 @@ button:hover {
     }
 }
 
-BUCKUP FOR CSS CODE
+buckup css

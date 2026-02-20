@@ -17,11 +17,12 @@ body {
     display: flex;
     gap: 40px;
     background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-    max-width: 1000px;
+    padding: 33px;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    max-width: 1050px;
     width: 95%;
+
 }
 
 .left-panel {
@@ -73,16 +74,24 @@ button:hover {
     padding: 10px;
     border-radius: 15px;
     width: 100%;
-    max-width: 500px; /* ограничиваем, чтобы не вылазило */
+    max-width: 600px; /* ограничиваем, чтобы не вылазило */
 }
 
 /* Плитки */
 .tile {
+    touch-action: none;
     border-radius: 8px;
     cursor: pointer;
-    background-size: cover;
+    background-image: url("images/stock_image.jpg");
+    background-size: cover;  /* ⚡ здесь главное: cover вместо масштабирования по сетке */
+    background-position: center; /* чтобы центр всегда был в плитке */
     transition: 0.2s ease;
     aspect-ratio: 1 / 1; /* всегда квадрат */
+}
+
+.dragging{
+    opacity:.5;
+    transform:scale(1.05);
 }
 
 .tile:hover {

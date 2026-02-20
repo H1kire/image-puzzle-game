@@ -1,3 +1,6 @@
+buckuptml
+
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -10,26 +13,31 @@
 <div class="game-container">
   <div class="left-panel">
     <h2>🧩 Image Puzzle</h2>
+    <h2>
+      <select id="langSelect">
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+        <option value="uk">Українська</option>
+      </select>
+    </h2>
 
     <div class="controls">
-      <label>Складність:
-        <select id="difficulty">
-          <option value="3">3×3</option>
-          <option value="4" selected>4×4</option>
-          <option value="5">5×5</option>
-        </select>
-      </label>
+      <button id="modeToggleBtn">🖐 Drag mode</button>
+      <label id="difficultyLabel">Сложность:</label>
+      <select id="difficulty">
+        <option value="3">3×3</option>
+        <option value="4" selected>4×4</option>
+        <option value="5">5×5</option>
+      </select>
 
-      <button class="random-btn" onclick="useRandomImage()">🎲 Random Image</button>
-
+      <button class="random-btn" id="randomBtn" onclick="useRandomImage()">🎲 Random Image</button>
       <input type="file" id="imageUpload" accept="image/*">
-
       <button id="shuffleBtn">Перемешать</button>
     </div>
 
     <div class="info">
-      <span>Ходы: <span id="moves">0</span></span>
-      <span>Час: <span id="timer">0</span> с</span>
+      <span id="movesLabel">Ходы: <span id="moves">0</span></span>
+      <span id="timerLabel">Время: <span id="timer">0</span> с</span>
     </div>
 
     <div id="reference">
@@ -45,16 +53,14 @@
 <div id="winModal" class="modal">
   <div class="modal-content">
     <span class="close-btn" onclick="closeModal()">&times;</span>
-    <h2>🎉 Puzzle Completed!</h2>
-    <p>Time: <span id="finalTime"></span> с</p>
-    <p>Moves: <span id="finalMoves"></span></p>
-    <p>Grid Size: <span id="finalSize"></span></p>
-    <button class="restart-btn" onclick="restartGame()">Play Again</button>
+    <h2 id="winModalMessage">🎉 Puzzle Completed!</h2>
+    <p><span id="finalTimeLabel">Time:</span> <span id="finalTime"></span> с</p>
+    <p><span id="finalMovesLabel">Moves:</span> <span id="finalMoves"></span></p>
+    <p><span id="finalSizeLabel">Grid Size:</span> <span id="finalSize"></span></p>
+    <button class="restart-btn" id="restartBtn" onclick="restartGame()">Play Again</button>
   </div>
 </div>
 
-<script src="script.js"></script>
+<script type="module" src="tap_tap_swap_mode.js"></script>
 </body>
 </html>
-
-BUCKUP FOR HTML CODE
