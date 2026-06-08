@@ -5,7 +5,7 @@ let moves = 0;
 let timer = 0;
 let interval = null;
 let imageSrc = "images/stock_image.jpg";
-
+ 
 const game = document.getElementById("game");
 const shuffleBtn = document.getElementById("shuffleBtn");
 const difficultySelect = document.getElementById("difficulty");
