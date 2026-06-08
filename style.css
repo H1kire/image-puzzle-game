@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
     color: #333;
 }
-
+ 
 .game-container {
     display: flex;
     gap: 40px;
